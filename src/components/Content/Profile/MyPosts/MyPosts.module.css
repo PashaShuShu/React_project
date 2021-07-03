@@ -1,0 +1,13 @@
+.post{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 5em 1fr;
+    grid-template-areas: 
+    "my__post" 
+    "posts";
+}
+.my__post{
+    grid-area: my__post;
+    margin-top: 3%;
+    margin-left: 6%;
+}

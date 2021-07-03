@@ -1,0 +1,8 @@
+.nav__item{
+    font-style: oblique;
+    font-size: 24px;
+} 
+
+.nav__item.active{
+    color: rgba(0, 0, 0, 0.473);    
+}
