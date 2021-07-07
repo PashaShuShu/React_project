@@ -1,8 +1,17 @@
-.nav__item{
-    font-style: oblique;
+.nav__menu{
+    margin-top: 20%;
+}
+.nav__item a{
+    font-style: inherit;
     font-size: 24px;
+    text-decoration: none;
 } 
 
-.nav__item.active{
-    color: rgba(0, 0, 0, 0.473);    
+.nav__item a.active{
+    color: rgba(0, 0, 0, 0.61);    
+}
+
+.top__friends{
+    display: grid;
+    grid-template-columns:1fr 1fr 1fr;
 }

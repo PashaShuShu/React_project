@@ -1,0 +1,19 @@
+.messages{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    "l r";
+}
+
+.r{
+    grid-area: r;
+    background-color:rgba(137, 43, 226, 0.322);
+    width: auto;
+}
+
+.l{
+    grid-area: l;
+    background-color:rgba(73, 136, 36, 0.322);
+    width: auto;
+}

@@ -2,7 +2,7 @@ import classes from './Footer.module.css';
 const Footer = ()=>{
   return(
       <footer>
-        Footer
+        All rights are defended fuck you
       </footer>
   );
 }
