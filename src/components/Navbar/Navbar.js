@@ -1,22 +1,36 @@
 import classes from './Navbar.module.css';
-const Nav = ()=>{
-    return(
+import Friend from './TopFriends/Friend';
+import { NavLink } from 'react-router-dom';
+
+const Nav = (props) => {
+    
+    
+    let friendsItems = props.friendsData.map(el=><Friend name={el.name} img={el.img} />)
+
+    return (
         <nav>
-            <b><h1>Nav Bar</h1></b>
-            <div className ={`${classes.nav__item} + ${classes.active}`}>
-                <a href="/profile">Profile</a>
+            <div className={classes.nav__menu}>
+                <div className={`${classes.nav__item} + ${classes.active}`}>
+                    <NavLink to="/profile" activeClassName={classes.active}>Profile</NavLink>
+                </div>
+                <div className={classes.nav__item}>
+                    <NavLink to="/dialogs" activeClassName={classes.active}>Messages</NavLink>
+                </div>
+                <div className={classes.nav__item}>
+                    <NavLink to="/news" activeClassName={classes.active}>News</NavLink>
+                </div>
+                <div className={classes.nav__item}>
+                    <NavLink to="/music" activeClassName={classes.active}>Music</NavLink>
+                </div><br></br>
+                <div className={classes.nav__item}>
+                    <NavLink to="/settings" activeClassName={classes.active}>Settings</NavLink>
+                </div>
             </div>
-            <div className ={classes.nav__item}>
-                <a href="/dialogs">Messages</a>
-            </div>
-            <div className ={classes.nav__item}>
-                <a href="/news">News</a>
-            </div>
-            <div className ={classes.nav__item}>
-                <a href="/music">Music</a>
-            </div><br></br>
-            <div className ={classes.nav__item}>
-                <a href="/settings">Settings</a>
+            <br/>
+            <br/>
+            <h1>Top Friends</h1>
+            <div className={classes.top__friends}>
+                {friendsItems}
             </div>
         </nav>
     );

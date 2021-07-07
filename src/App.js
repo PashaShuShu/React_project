@@ -1,27 +1,33 @@
-import classes from './App.module.css';
+import './App.css';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Nav from './components/Navbar/Navbar';
 import Profile from './components/Content/Profile/Profile';
 import Dialogs from './components/Content/Dialogs/Dialogs';
-import {BrowserRouter, Route} from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 
-const App = ()=> {
+const App = (props) => {
   return (
     <BrowserRouter>
-      <div className={classes.app__wrapper}>
-        <div className={classes.app__wrapper__header}>
+      <div className="app__wrapper">
+        <div className="app__wrapper__header">
           <Header />
         </div>
-        <div className={classes.app__wrapper__nav}>
-          <Nav />
+        <div className="app__wrapper__nav">
+          <Nav friendsData={props.state.friendsData} />
         </div>
-        <div className={classes.app__wrapper__content}>
-          <Route path='/profile' component={Profile} />
-          <Route path='/dialogs' component={Dialogs} />
+        <div className="app__wrapper__content">
+          <Route path='/profile' render={() => <Profile
+            dispatch={props.dispatch}
+            profilePage={props.state.profilePage}
+          />} />
+          <Route path='/dialogs' render={() => <Dialogs
+            dispatch={props.dispatch}
+            dialogsPage={props.state.dialogsPage}
+          />} />
         </div>
-        <div className={classes.app__wrapper__footer}>
+        <div className="app__wrapper__footer">
           <Footer />
         </div>
       </div>

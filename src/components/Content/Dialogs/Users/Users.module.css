@@ -1,0 +1,29 @@
+.dialog{
+    padding:15px;
+    box-shadow: 0px 0px 3px 0.5px rebeccapurple;
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    "ava name";
+}
+.dialog a{
+    text-decoration: none;
+}
+.dialog a.active{
+    color: rgb(55, 163, 49);
+}
+
+.dialog img{
+    height:50px;
+    width: 50px;
+    border-radius: 100px;
+    object-fit: cover;
+}
+
+.ava{
+    grid-area: ava;
+}
+.name{
+    grid-area: name;
+}
