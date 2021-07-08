@@ -15,7 +15,7 @@ const App = (props) => {
           <Header />
         </div>
         <div className="app__wrapper__nav">
-          <Nav friendsData={props.state.friendsData} />
+          <Nav />
         </div>
         <div className="app__wrapper__content">
           <Route path='/profile' render={() => <Profile
