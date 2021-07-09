@@ -1,6 +1,7 @@
 import classes from './Profile.module.css';
-import MyPost from './MyPosts/MyPosts'
 import Info from './Info/Info'
+import MyPostContainer from './MyPosts/MyPostsContainer';
+import store from './../../../redux/store';
 
 const Profile = (props) => {
     return (
@@ -11,9 +12,7 @@ const Profile = (props) => {
             <div className={classes.post__content}>
                 <Info description="Pasha`s profile" />
                 <h3>My posts</h3>
-                <MyPost
-                    profilePage={props.profilePage}
-                    dispatch={props.dispatch}/>
+                <MyPostContainer store={props.store} />
             </div>
         </div>
     );

@@ -1,10 +1,9 @@
 import classes from "./MyPosts.module.css"
 import Post_item from './Post/Post'
 import React from 'react'
-import { addPostActionCreator, updatePostTextActionCreator} from '../../../../redux/profile-reducer'
 
-const MyPost = (props) => {
-    let postsItem = props.profilePage.postsData.map(el => {
+const MyPosts = (props) => {
+    let postsItem = props.posts.map(el => {
         return <Post_item name={el.name} message={el.message} likes_count={el.likes_count} />
     })
     postsItem.reverse();
@@ -12,21 +11,21 @@ const MyPost = (props) => {
     let newPostElement = React.createRef();
 
     let addPost = () => {
-        let action = addPostActionCreator();
-        props.dispatch(action);
+        props.addPost();
+        /* let action = addPostActionCreator();
+        props.dispatch(action); */
     }
 
     let onPostChange = () => {
         let text = newPostElement.current.value;
-        let action = updatePostTextActionCreator(text)
-        props.dispatch(action);
+        props.updateNewPostText(text);
     }
 
     return (
         <div className="Post">
             <div className={classes.post}>
                 <div className={classes.my__post}>
-                    <textarea onChange={onPostChange} ref={newPostElement} value={props.profilePage.newPostText} /><br />
+                    <textarea onChange={onPostChange} ref={newPostElement} value={props.newPostText} /><br />
                     <button onClick={addPost}>Add post</button><br />
                 </div>
                 <div className={classes.posts}>
@@ -37,4 +36,4 @@ const MyPost = (props) => {
     );
 }
 
-export default MyPost;
+export default MyPosts;
