@@ -4,12 +4,11 @@ import Messages from './Messages/Messages'
 import React from 'react'
 
 const Dialogs = (props) => {
-
-    let UsersItems = props.dialogsData.map((el) => {
-        return <User name={el.name} img={el.img} user_id={el.id} />;
+    let usersItems = props.dialogsData.map((el) => {
+        return <User name={el.name} key={el.id} img={el.img} id={el.id} />;
     });
     let messagesItem = props.messagesData.map((el) => {
-        return <Messages side={el.sentBy} message={el.message} />;
+        return <Messages key={el.id} side={el.sentBy} message={el.message} />;
     });
 
     let newMessage = React.createRef();
@@ -24,7 +23,7 @@ const Dialogs = (props) => {
     return (
         <div className={classes.dialogs}>
             <div className={classes.dialogs__dialog}>
-                {UsersItems}
+                {usersItems}
             </div>
             <div></div>
             <div className={classes.messages}>

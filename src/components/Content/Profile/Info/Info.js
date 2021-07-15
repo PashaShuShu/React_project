@@ -1,14 +1,27 @@
-import classes from './Info.module.css'
+import classes from './Info.module.css';
+import Preloader from './../../common/Preloader/Preloader';
 
 const Info = (props) => {
+    if(!props.profile){
+        return <Preloader />
+    }
     return (
         <div className={classes.info}>
             <div className={classes.avatar}>
-                <img src="https://azertag.az/files/galleryphoto/2021/1/1000x669/16131459965491937006_1000x669.jpg"></img>
+                <img src={props.profile.photos.large}></img>
             </div>
             <div className={classes.description}>
-                {props.description}
+                {props.profile.fullName}
+                <div>
+                <h3>About me</h3>
+                {props.profile.aboutMe}
             </div>
+            <div>
+                <h3>instagram: <a href={props.profile.contacts.instagram}>чекай мой инст</a></h3>
+                <h3>git: <a href={props.profile.contacts.github}>чекай мой гит</a></h3>
+            </div>
+            </div>
+            
         </div>
     );
 }

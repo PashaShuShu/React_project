@@ -1,7 +1,6 @@
 import classes from './Profile.module.css';
 import Info from './Info/Info'
 import MyPostContainer from './MyPosts/MyPostsContainer';
-import store from './../../../redux/store';
 
 const Profile = (props) => {
     return (
@@ -10,9 +9,9 @@ const Profile = (props) => {
                 <img src="https://i.gifer.com/1Zla.gif"></img>
             </div>
             <div className={classes.post__content}>
-                <Info description="Pasha`s profile" />
+                <Info profile={props.profile} />
                 <h3>My posts</h3>
-                <MyPostContainer store={props.store} />
+                <MyPostContainer />
             </div>
         </div>
     );

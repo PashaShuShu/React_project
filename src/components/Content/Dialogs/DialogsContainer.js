@@ -1,33 +1,26 @@
 import Dialogs from './Dialogs';
-import React from 'react'
 import { addMessageActionCreator, updateNewMessageTextActionCreator } from '../../../redux/dialog-reducer'
+import { connect } from 'react-redux'
 
-const DialogsContainer = (props) => {
-    let state = props.store.getState();
-
-    let messagesData = state.dialogsPage.messagesData;
-    let dialogsData = state.dialogsPage.dialogsData;
-    let newMessageText = state.dialogsPage.newMessageText;
-
-
-    let sentMessage = () => {
-        let action = addMessageActionCreator()
-        props.store.dispatch(action);
+debugger
+let mapStateToProps = (state) => {
+    return {
+        dialogsData: state.dialogsPage.dialogsData,
+        messagesData: state.dialogsPage.messagesData,
+        newMessageText: state.dialogsPage.newMessageText
     }
-    let onMessageChange = (text) => {
-        let action = updateNewMessageTextActionCreator(text)
-        props.store.dispatch(action);
+}
+let mapDispatchToProps = (dispatch) => {
+    return {
+        addMessage: () => {
+            dispatch(addMessageActionCreator());
+        },
+        updateNewMessageText: (text) => {
+            dispatch(updateNewMessageTextActionCreator(text));
+        }
     }
-
-    return (
-        <Dialogs
-            addMessage={sentMessage}
-            updateNewMessageText={onMessageChange}
-            messagesData={messagesData}
-            dialogsData={dialogsData}
-            newMessageText={newMessageText}
-        />
-    );
 }
 
-export default DialogsContainer;
+const SuperDialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
+
+export default SuperDialogsContainer;

@@ -4,7 +4,7 @@ import React from 'react'
 
 const MyPosts = (props) => {
     let postsItem = props.posts.map(el => {
-        return <Post_item name={el.name} message={el.message} likes_count={el.likes_count} />
+        return <Post_item name={el.name} key={el.id} message={el.message} likes_count={el.likes_count} />
     })
     postsItem.reverse();
 
@@ -12,8 +12,6 @@ const MyPosts = (props) => {
 
     let addPost = () => {
         props.addPost();
-        /* let action = addPostActionCreator();
-        props.dispatch(action); */
     }
 
     let onPostChange = () => {
