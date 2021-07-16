@@ -1,5 +1,21 @@
+header{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: "r r l";
+}
+
 .logo__and__name img{
     height: 50px;
-  }
+}
+.name{
+  color:rgb(0, 0, 0);
+  font-weight: bolder;
+  font-size: 32px;
+}
 
-  
+.logo__and__name{
+  grid-area: r;
+}
+.loginBlock{
+  grid-area: l;
+}

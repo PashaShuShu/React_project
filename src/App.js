@@ -1,5 +1,5 @@
 import './App.css';
-import Header from './components/Header/Header';
+import HeaderContainer from './components/Header/HeaderContainer';
 import Footer from './components/Footer/Footer';
 import Nav from './components/Navbar/Navbar';
 import ProfileContainer from './components/Content/Profile/ProfileContainer';
@@ -12,7 +12,7 @@ const App = (props) => {
     <BrowserRouter>
       <div className="app__wrapper">
         <div className="app__wrapper__header">
-          <Header />
+          <HeaderContainer />
         </div>
         <div className="app__wrapper__nav">
           <Nav />
@@ -21,6 +21,7 @@ const App = (props) => {
           <Route path='/profile/:userId?' render={() => <ProfileContainer />} />
           <Route path='/dialogs' render={() => <DialogsContainer />} />
           <Route path='/friends' render={()=><UsersContainer />}/>
+          <Route path='/login' render={()=><ddd/>}></Route>
         </div>
         <div className="app__wrapper__footer">
           <Footer />
