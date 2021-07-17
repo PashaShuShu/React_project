@@ -3,7 +3,9 @@ import User from './Users/Users'
 import Messages from './Messages/Messages'
 import React from 'react'
 
+
 const Dialogs = (props) => {
+
     let usersItems = props.dialogsData.map((el) => {
         return <User name={el.name} key={el.id} img={el.img} id={el.id} />;
     });
