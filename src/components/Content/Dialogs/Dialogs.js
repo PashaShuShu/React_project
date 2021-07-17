@@ -2,37 +2,35 @@ import classes from './Dialogs.module.css'
 import User from './Users/Users'
 import Messages from './Messages/Messages'
 import React from 'react'
-import {addMessageActionCreator, updateNewMessageTextActionCreator} from '../../../redux/dialog-reducer'
+
 
 const Dialogs = (props) => {
 
-    let UsersItems = props.dialogsPage.dialogsData.map((el) => {
-        return <User name={el.name} img={el.img} user_id={el.id} />;
+    let usersItems = props.dialogsData.map((el) => {
+        return <User name={el.name} key={el.id} img={el.img} id={el.id} />;
     });
-    let messagesItem = props.dialogsPage.messagesData.map((el) => {
-        return <Messages side={el.sentBy} message={el.message} />;
+    let messagesItem = props.messagesData.map((el) => {
+        return <Messages key={el.id} side={el.sentBy} message={el.message} />;
     });
 
     let newMessage = React.createRef();
     let sentMessage = () => {
-        let action = addMessageActionCreator()
-        props.dispatch(action);
+        props.addMessage();
     }
     let onMessageChange = () => {
         let text = newMessage.current.value;
-        let action = updateNewMessageTextActionCreator(text)
-        props.dispatch(action);
+        props.updateNewMessageText(text);
     }
 
     return (
         <div className={classes.dialogs}>
             <div className={classes.dialogs__dialog}>
-                {UsersItems}
+                {usersItems}
             </div>
             <div></div>
             <div className={classes.messages}>
                 {messagesItem}
-                <textarea onChange={onMessageChange} ref={newMessage} value={props.dialogsPage.newMessageText} />
+                <textarea onChange={onMessageChange} ref={newMessage} value={props.newMessageText} />
                 <button onClick={sentMessage}>send</button>
             </div>
         </div>

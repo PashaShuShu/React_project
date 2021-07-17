@@ -1,31 +1,28 @@
 import './App.css';
-import Header from './components/Header/Header';
+import HeaderContainer from './components/Header/HeaderContainer';
 import Footer from './components/Footer/Footer';
 import Nav from './components/Navbar/Navbar';
-import Profile from './components/Content/Profile/Profile';
-import Dialogs from './components/Content/Dialogs/Dialogs';
+import ProfileContainer from './components/Content/Profile/ProfileContainer';
+import DialogsContainer from './components/Content/Dialogs/DialogsContainer'
+import UsersContainer from './components/Content/Users/UsersContainer';
 import { BrowserRouter, Route } from 'react-router-dom';
-
+import LoginSuccess from './components/Login/LoginSuccess';
 
 const App = (props) => {
   return (
     <BrowserRouter>
       <div className="app__wrapper">
         <div className="app__wrapper__header">
-          <Header />
+          <HeaderContainer />
         </div>
         <div className="app__wrapper__nav">
           <Nav />
         </div>
         <div className="app__wrapper__content">
-          <Route path='/profile' render={() => <Profile
-            dispatch={props.dispatch}
-            profilePage={props.state.profilePage}
-          />} />
-          <Route path='/dialogs' render={() => <Dialogs
-            dispatch={props.dispatch}
-            dialogsPage={props.state.dialogsPage}
-          />} />
+          <Route path='/profile/:userId?' render={() => <ProfileContainer />} />
+          <Route path='/dialogs' render={() => <DialogsContainer />} />
+          <Route path='/users' render={()=><UsersContainer />}/>
+          <Route path='/login' render={()=><LoginSuccess/>}/>
         </div>
         <div className="app__wrapper__footer">
           <Footer />
