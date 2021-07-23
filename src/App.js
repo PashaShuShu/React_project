@@ -6,8 +6,7 @@ import ProfileContainer from './components/Content/Profile/ProfileContainer';
 import DialogsContainer from './components/Content/Dialogs/DialogsContainer'
 import UsersContainer from './components/Content/Users/UsersContainer';
 import { BrowserRouter, Route } from 'react-router-dom';
-import LoginContainer from './components/Login/LoginContainer';
-import Example from './components/Content/Hooks/Example'
+import LoginSuccess from './components/Login/LoginSuccess';
 
 const App = (props) => {
   return (
@@ -23,8 +22,7 @@ const App = (props) => {
           <Route path='/profile/:userId?' render={() => <ProfileContainer />} />
           <Route path='/dialogs' render={() => <DialogsContainer />} />
           <Route path='/users' render={()=><UsersContainer />}/>
-          <Route path='/login' render={()=><LoginContainer/>}/>
-          <Route path='/hooks' render={()=><Example/>}/>
+          <Route path='/login' render={()=><LoginSuccess/>}/>
         </div>
         <div className="app__wrapper__footer">
           <Footer />
