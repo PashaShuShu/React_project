@@ -78,7 +78,7 @@ export const setUsersTotalCount = (count) => ({ type: SET_USERS_TOTAL_COUNT, cou
 export const toggleIsFetching = (isFetching) => ({ type: TOGGLE_IS_FETCHING, isFetching });
 export const toggleIsFollowingProgress = (isFetching, userId) => ({ type: TOGGLE_IS_FOLLOWING_PROGRESS, isFetching, userId })
 
-export const getUsers = (currentPage, pageSize) => {
+export const requestUsersPages = (currentPage, pageSize) => {
 
     return ((dispatch) => {
 

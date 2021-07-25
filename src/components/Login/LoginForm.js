@@ -1,9 +1,16 @@
 import { Form, Field } from "react-final-form"
 import { requiredField } from './../../utils/validators/validators';
 
+
 const LoginForm = (props) => {
-    const onSubmit = (e) => {
-        props.loginUser(e.login, e.password, e.rememberMe);
+    const onSubmit = async values => {
+
+        props.loginUser(values.login, values.password, values.rememberMe, values.captcha)
+
+        if (props.error) {
+            return { login: props.error }
+        }
+
     }
     return (
         <Form
@@ -16,11 +23,11 @@ const LoginForm = (props) => {
                         {({ input, meta }) => (
                             <div>
                                 <input {...input} type="text" placeholder="login" />
-                                {meta.error && meta.touched && <span>{meta.error}</span>}
+                                {(meta.error || meta.submitError) && meta.touched && <span>{meta.error || meta.submitError}</span>}
                             </div>
                         )}
                     </Field>
-                    
+
                     <Field name="password">
                         {({ input, meta }) => (
                             <div>
@@ -29,7 +36,15 @@ const LoginForm = (props) => {
                             </div>
                         )}
                     </Field>
-
+                    {props.captchaURL ?
+                        <div>
+                            <img src={props.captchaURL}></img>
+                            <div>
+                                <Field name="captcha" type="text" component="input" />
+                            </div>
+                        </div>
+                        : null
+                    }   
                     <div>
                         <Field name="rememberMe" component="input" type="checkbox" />
                         <supn>remember me</supn>

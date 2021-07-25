@@ -37,16 +37,30 @@ export const profileAPI = {
 }
 
 export const loginAPI = {
-    loginUser(login, password, rememberMe) {
+    loginUser(login, password, rememberMe, captcha) {
+        debugger
+        if (captcha !== "") {
+            return instance.post(`auth/login`,
+                {
+                    email: login,
+                    password: password,
+                    rememberMe: rememberMe,
+                    captcha: captcha
+                }
+            );
+        }
         return instance.post(`auth/login`,
             {
                 email: login,
                 password: password,
-                rememberMe: rememberMe
+                rememberMe: rememberMe,
             }
         );
     },
     logoutUser() {
         return instance.delete('auth/login');
-    }
+    },
+    getCaptcha() {
+        return instance.get('security/get-captcha-url');
+    },
 }
