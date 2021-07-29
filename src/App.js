@@ -5,7 +5,7 @@ import Nav from './components/Navbar/Navbar';
 import ProfileContainer from './components/Content/Profile/ProfileContainer';
 import DialogsContainer from './components/Content/Dialogs/DialogsContainer'
 import UsersContainer from './components/Content/Users/UsersContainer';
-import { BrowserRouter, Route, withRouter } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import LoginContainer from './components/Login/LoginContainer';
 import Example from './components/Content/Hooks/Example'
 import { connect } from 'react-redux';
@@ -18,8 +18,7 @@ class App extends React.Component {
   componentDidMount() {
 
     this.props.initializeApp();
-    console.log(this.props.initialized)
-    debugger
+
   }
 
   render() {
@@ -27,10 +26,9 @@ class App extends React.Component {
     if (!this.props.initialized) {
       return <Preloader />
     }
-
     return (
 
-      <BrowserRouter>
+      
         <div className="app__wrapper">
           <div className="app__wrapper__header">
             <HeaderContainer />
@@ -49,7 +47,7 @@ class App extends React.Component {
             <Footer />
           </div>
         </div>
-      </BrowserRouter>
+      
     );
   }
 }
@@ -61,5 +59,6 @@ const mapStateToProps = (state) => {
 }
 
 export default compose(
+  withRouter,
   connect(mapStateToProps, { initializeApp }),
 )(App);

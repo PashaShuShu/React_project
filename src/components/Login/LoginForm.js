@@ -2,15 +2,12 @@ import { Form, Field } from "react-final-form"
 import { requiredField } from './../../utils/validators/validators';
 
 
-const LoginForm = (props) => {
+const LoginForm = ({ loginUser, error, captchaURL }) => {
     const onSubmit = async values => {
-
-        props.loginUser(values.login, values.password, values.rememberMe, values.captcha)
-
-        if (props.error) {
-            return { login: props.error }
+        loginUser(values.login, values.password, values.rememberMe, values.captcha)
+        if (error) {
+            return { login: error }
         }
-
     }
     return (
         <Form
@@ -36,15 +33,15 @@ const LoginForm = (props) => {
                             </div>
                         )}
                     </Field>
-                    {props.captchaURL ?
+                    {captchaURL ?
                         <div>
-                            <img src={props.captchaURL}></img>
+                            <img src={captchaURL}></img>
                             <div>
                                 <Field name="captcha" type="text" component="input" />
                             </div>
                         </div>
                         : null
-                    }   
+                    }
                     <div>
                         <Field name="rememberMe" component="input" type="checkbox" />
                         <supn>remember me</supn>
