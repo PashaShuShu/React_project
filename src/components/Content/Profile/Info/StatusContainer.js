@@ -1,7 +1,5 @@
-import { updateNewStatsText } from '../../../../redux/profile-reducer';
 import { connect } from 'react-redux';
 import React from 'react'
-import Status from './Status';
 import StatusButOnHooks from './StatusButOnHooks';
 import { updateStatus } from './../../../../redux/profile-reducer';
 

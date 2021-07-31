@@ -13,20 +13,22 @@
 .selectedPage{
     font-weight: bold;
     cursor: default;
-    margin: 10px;
+    margin: 4px;
+    background-color:rgba(0, 0, 0, 0.178);
+    border-radius: 5px;
 }
 
 .page{
     cursor: pointer;
-    margin: 10px;
+    margin: 4px;
 }
 .pages{
-    width: 300px;
+    width: 500px;
     margin-top: 10px;
     margin-bottom: 10px;
     margin-left: auto;
     margin-right: auto;
 }
 .page:hover{
-    color: rgb(113, 0, 117);
+    text-decoration: underline;
 }
