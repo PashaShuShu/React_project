@@ -55,5 +55,4 @@ export default compose(
         uploadPhoto,
     }),
     withRouter,
-    withAuthRedirect,
 )(ProfileContainer)
