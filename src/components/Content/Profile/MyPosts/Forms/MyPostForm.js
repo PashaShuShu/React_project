@@ -14,7 +14,6 @@ const MyPostForm = (props) => {
     }
     
     const onSubmit = (e) => {
-        debugger
         props.updatePostText(e.post)
         props.addPost();
     }
