@@ -9,7 +9,12 @@ const Profile = (props) => {
                 <img src="https://i.gifer.com/1Zla.gif"></img>
             </div>
             <div className={classes.post__content}>
-                <Info profile={props.profile} status={props.status} updateStatus={props.updateStatus}/>
+                <Info
+                    uploadPhoto={props.uploadPhoto}
+                    owner={props.owner}
+                    profile={props.profile}
+                    status={props.status}
+                    updateStatus={props.updateStatus} />
                 <h3>My posts</h3>
                 <MyPostContainer />
             </div>

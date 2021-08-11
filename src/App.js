@@ -4,7 +4,7 @@ import Footer from './components/Footer/Footer';
 import Nav from './components/Navbar/Navbar';
 import ProfileContainer from './components/Content/Profile/ProfileContainer';
 import UsersContainer from './components/Content/Users/UsersContainer';
-import { Route, withRouter, BrowserRouter } from 'react-router-dom';
+import { Route, withRouter, BrowserRouter, HashRouter } from 'react-router-dom';
 import LoginContainer from './components/Login/LoginContainer';
 import { connect, Provider } from 'react-redux';
 import React from 'react';
@@ -27,9 +27,6 @@ class App extends React.Component {
 
   render() {
 
-    /* if (!this.props.initialized) {
-      return <Preloader />
-    } */
     return (
       <div className="app__wrapper">
         <div className="app__wrapper__header">
@@ -79,11 +76,11 @@ let AppContainer = compose(
 
 let MainApp = (props) => {
   return (
-    <BrowserRouter>
+    <HashRouter basename={process.env.PUBLIC_URL}>
       <Provider store={store}>
         <AppContainer />
       </Provider>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 

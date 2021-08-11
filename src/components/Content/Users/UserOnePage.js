@@ -1,5 +1,6 @@
 import classes from './Users.module.css';
 import { NavLink } from 'react-router-dom';
+import noPhoto from '../../../img/ava2.gif'
 
 const UserOnePage = ({users, followingInProgress, unfollow, follow}) => {
     return (<>
@@ -8,7 +9,7 @@ const UserOnePage = ({users, followingInProgress, unfollow, follow}) => {
                 return (
                     <div key={user.id} className={classes.friend}>
                         <NavLink to={"/profile/" + user.id}><img src={
-                            user.photos.small != null ? user.photos.small : "https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png"}></img>
+                            user.photos.small != null ? user.photos.small : noPhoto}></img>
                         </NavLink>
                         <div>{user.name}</div>
                         <div>{user.status}</div>

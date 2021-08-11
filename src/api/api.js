@@ -34,11 +34,19 @@ export const profileAPI = {
     putUserStatus(text) {
         return instance.put(`profile/status`, { status: text });
     },
+    putPhoto(photo) {
+        var formData = new FormData();
+        formData.append("image", photo);
+        return instance.put(`profile/photo`,formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        });
+    }
 }
 
 export const loginAPI = {
     loginUser(login, password, rememberMe, captcha) {
-        debugger
         if (captcha !== "") {
             return instance.post(`auth/login`,
                 {
